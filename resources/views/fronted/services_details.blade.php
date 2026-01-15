@@ -53,19 +53,23 @@
 
                             <div>
                                 <input type="text" name="name" id="">
-
+                                
                                 <select name="" id="">
                                 <option value="">Services</option>
-                                <option value="">Weddings</option>
-                                <option value="">Anniversaries</option>
-                                <option value="">Family Shoots</option>
+                                 @if(!empty($services))
+                                    @foreach($services as $services)
+                                        <option value="{{$services->id}}">{{$services->name}}</option>
+                                    @endforeach
+                                @endif
                               </select>
 
                               <select name="" id="">
                                 <option value="">Choose City</option>
-                                <option value="">Nawada</option>
-                                <option value="">Gaya</option>
-                                <option value="">Patna</option>
+                                @if(!empty($cities))
+                                    @foreach($cities as $city)
+                                        <option value="{{$city->id}}">{{$city->name}}</option>
+                                    @endforeach
+                                @endif
                               </select>
 
                               <input type="button" value="Search">

@@ -60,10 +60,18 @@
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Cities</a>
                         <div class="dropdown-menu bg-light mt-2">
-                            <a href="gallery.html" class="dropdown-item">Nawada</a>
+                       
+                            @if(!empty($cities))
+                                @foreach ($cities as $city)
+                                            <a href="{{ route('city.show', $city->name) }}" class="dropdown-item" >{{$city->name}}</a>
+                                @endforeach
+                                
+                            @endif
+                          
+                            {{-- <a href="gallery.html" class="dropdown-item">Nawada</a>
                             <a href="#" class="dropdown-item">Gaya</a>
                             <a href="#" class="dropdown-item">Patna</a>
-                            <a href="{{route('testimonials')}}" class="dropdown-item">Nalanda</a>
+                            <a href="{{route('testimonials')}}" class="dropdown-item">Nalanda</a> --}}
                             {{-- <a href="404.html" class="dropdown-item">404 Page</a> --}}
                         </div>
                     </div>

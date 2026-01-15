@@ -134,7 +134,7 @@
                     <div class="service-item h-100 p-4 border-bottom border-lg-bottom-0 border-lg-end wow fadeIn"
                         data-wow-delay="0.1s">
                         <img class="img-fluid" src="{{asset('fronted/img/Birthday.jpg')}}" alt="">
-                        <h3 class="mb-3">Birthday parties</h3>
+                        <h3 class="mb-3">Birthday Parties</h3>
                         <p class="mb-3">Clita erat ipsum et lorem et sit, sed stet no labore lorem sit clita duo justo
                             et tempor eirmod magna dolore erat amet</p>
                         <a class="btn btn-sm btn-primary text-uppercase" href="">Read More <i

@@ -39,12 +39,13 @@
 
             <div class="form-group {{ $errors->has('image') ? 'has-error' : '' }}">
                 <label for="image">{{ trans('cruds.service.fields.image') }}*</label>
-                <input type="file" id="image" name="image" class="form-control" value="{{ old('image', isset($service) ? $service->image : '') }}" required>
+                <input type="file" id="image" name="image" class="form-control" value="{{ old('image', isset($service) ? $service->image : '') }}">
                 @if($errors->has('image'))
                     <em class="invalid-feedback">
                         {{ $errors->first('image') }}
                     </em>
                 @endif
+                <img src="{{asset('/uploads/admin/services/'.$service->image)}}" alt="{{$service->name}}">
                 <p class="helper-block">
                     {{ trans('cruds.service.fields.name_helper') }}
                 </p>
@@ -65,11 +66,10 @@
 
             <div class="form-group {{ $errors->has('status') ? 'has-error' : '' }}">
                 <label for="status">{{ trans('cruds.service.fields.status') }}</label>
-                {{-- <input type="number" id="status" name="status" class="form-control" value="{{ old('status', isset($service) ? $service->status : '') }}" step="0.01"> --}}
                 <select id="status" name="status" class="form-control" step="0.01">
                     <option value="">Select Status</option>
-                    <option value="1">Active</option>
-                    <option value="0">Inactive</option>
+                    <option value="1" {{$service->status==1?'selected':''}} >Active</option>
+                    <option value="0"{{$service->status==0?'selected':''}} >Inactive</option>
                 </select>
 
                 @if($errors->has('status'))

@@ -26,6 +26,14 @@
                             {{ $service->name }}
                         </td>
                     </tr>
+                     <tr>
+                        <th>
+                            {{ trans('cruds.service.fields.description') }}
+                        </th>
+                        <td>
+                            {{ $service->description }}
+                        </td>
+                    </tr>
                     <tr>
                         <th>
                             {{ trans('cruds.service.fields.price') }}
@@ -33,6 +41,10 @@
                         <td>
                             ${{ $service->price }}
                         </td>
+                    </tr>
+                    <tr>
+                        <th>{{ trans('cruds.service.fields.image') }}</th>
+                        <td><img src="{{asset('/uploads/admin/services/'.$service->image)}}" alt="{{$service->name}}"></td>
                     </tr>
                 </tbody>
             </table>

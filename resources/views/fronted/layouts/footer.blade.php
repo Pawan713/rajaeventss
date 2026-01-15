@@ -80,6 +80,41 @@
     <script src="{{asset('fronted/lib/owlcarousel/owl.carousel.min.js')}}"></script>
     <!-- Template Javascript -->
     <script src="{{asset('fronted/js/main.js')}}"></script>
+
+
+
+
+
+
+
+
+{{-- /// Search Bar --}}
+<script>
+        $(document).ready(function() {
+            //  alert("name");
+    function fetchResults() {
+        let name = $('#search_name').val();
+        let service = $('#search_service').val();
+        let city = $('#search_city').val();
+       
+
+        $.ajax({
+            url: "{{ route('search.data') }}",
+            method: 'GET',
+            data: { name: name, service: service, city: city },
+            success: function(response) {
+                $('#search-results').html(response);
+                $('#city-load').hide();
+            }
+        });
+    }
+
+    // Trigger search on typing or changing dropdowns
+    $('#search_name').on('keyup', fetchResults);
+    $('#search_service, #search_city').on('change', fetchResults);
+});
+</script>
+
 </body>
 
 </html>

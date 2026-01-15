@@ -29,6 +29,11 @@ class Employee extends Model implements HasMedia
         'name',
         'email',
         'phone',
+        'aadhar_no',
+        'description',
+        'state',
+        'city',
+        'status',
         'created_at',
         'updated_at',
         'deleted_at',
@@ -48,16 +53,29 @@ class Employee extends Model implements HasMedia
     {
         $file = $this->getMedia('photo')->last();
 
+        // if ($file) {
+        //     $file->url       = $file->getUrl();
+        //     $file->thumbnail = $file->getUrl('thumb');
+        // }
+
         if ($file) {
-            $file->url       = $file->getUrl();
-            $file->thumbnail = $file->getUrl('thumb');
-        }
+        // Adding a 'v' parameter with the updated_at timestamp
+        $file->url       = $file->getUrl() . '?v=' . $file->updated_at->timestamp;
+        $file->thumbnail = $file->getUrl('thumb') . '?v=' . $file->updated_at->timestamp;
+        return $file;
+     }
 
         return $file;
     }
+  
 
     public function services()
     {
         return $this->belongsToMany(Service::class);
     }
+
+    // public function cities()
+    // {
+    //     return $this->belongsToMany(City::class);
+    // }
 }

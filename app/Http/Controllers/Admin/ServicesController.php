@@ -11,6 +11,7 @@ use Gate;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Support\Str;
 
 class ServicesController extends Controller
 {
@@ -95,6 +96,7 @@ class ServicesController extends Controller
            'status'=>$request->status,
            'description'=>$request->description,
             'image'=>$filename,
+            'slug'=> Str::slug($request->name, '-')
        ] );
 
 
@@ -116,23 +118,29 @@ class ServicesController extends Controller
     public function update(UpdateServiceRequest $request, Service $service)
     {
 
-        // dd($request);
-        // die();
-        // $service->update($request->all());
 
-            $image = $request->file('image');
-            $extension = $request->file('image')->getClientOriginalExtension();
-            $dir = public_path() .'/uploads/admin/services/';
-            $filename = $request->name.'_'.uniqid() . '_' . time() . '.' . $extension;
-            $var = $request->file('image')->move($dir, $filename);
+            $service=Service::where('id', $service->id)->first();
 
-            $service = Service::update([
-           "name" => $request->name,
-           'description'=>$request->description,
-           'price'=>$request->price,
-           'status'=>$request->status,
-           'description'=>$request->description,
+            if(!empty($request->file('image')))
+            {
+                   $image = $request->file('image');
+                    $extension = $request->file('image')->getClientOriginalExtension();
+                    $dir = public_path() .'/uploads/admin/services/';
+                    $filename = $request->name.'_'.uniqid() . '_' . time() . '.' . $extension;
+                    $var = $request->file('image')->move($dir, $filename);
+            }
+            else{
+                 $filename=$service->image;
+            }
+          
+            $service = Service::where('id', $service->id)->update([
+            "name" => $request->name,
+            'price'=>$request->price,
+            'status'=>$request->status,
+            'description'=>$request->description,
             'image'=>$filename,
+            'slug'=> Str::slug($request->name, '-')
+
        ] );
 
         return redirect()->route('admin.services.index');

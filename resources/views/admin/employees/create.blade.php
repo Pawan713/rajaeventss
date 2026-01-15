@@ -35,7 +35,7 @@
             </div>
             <div class="form-group {{ $errors->has('phone') ? 'has-error' : '' }}">
                 <label for="phone">{{ trans('cruds.employee.fields.phone') }}</label>
-                <input type="text" id="phone" name="phone" class="form-control" value="{{ old('phone', isset($employee) ? $employee->phone : '') }}">
+                <input type="text" id="phone" name="phone" class="form-control" value="{{ old('phone', isset($employee) ? $employee->phone : '') }}" maxlength="10">
                 @if($errors->has('phone'))
                     <em class="invalid-feedback">
                         {{ $errors->first('phone') }}
@@ -45,6 +45,72 @@
                     {{ trans('cruds.employee.fields.phone_helper') }}
                 </p>
             </div>
+
+             <div class="form-group {{ $errors->has('aadhar_no') ? 'has-error' : '' }}">
+                <label for="aadhar_no">{{ trans('cruds.employee.fields.aadhar_no') }}</label>
+                <input type="text" id="aadhar_no" name="aadhar_no" class="form-control" value="{{ old('aadhar_no', isset($employee) ? $employee->aadhar_no : '') }}" maxlength="12">
+                @if($errors->has('aadhar_no'))
+                    <em class="invalid-feedback">
+                        {{ $errors->first('aadhar_no') }}
+                    </em>
+                @endif
+                <p class="helper-block">
+                    {{ trans('cruds.employee.fields.phone_helper') }}
+                </p>
+            </div>
+
+            <div class="form-group {{ $errors->has('description') ? 'has-error' : '' }}">
+                <label for="description">{{ trans('cruds.employee.fields.description') }}*</label>
+                <input type="textarea" id="description" name="description" class="form-control" value="{{ old('description', isset($employee) ? $employee->description : '') }}" required>
+                @if($errors->has('description'))
+                    <em class="invalid-feedback">
+                        {{ $errors->first('description') }}
+                    </em>
+                @endif
+                <p class="helper-block">
+                    {{ trans('cruds.employee.fields.name_helper') }}
+                </p>
+            </div>
+
+            <div class="form-group {{ $errors->has('state') ? 'has-error' : '' }}">
+                <label for="state">{{ trans('cruds.employee.fields.state') }}*</label>
+                <select id="state" name="state" class="form-control">
+                    <option value="">Choose State</option>
+                    @if(!empty($states))
+                        @foreach($states as  $state)
+                        <option value="{{$state['id']}}">{{$state['name']}}</option>
+                        @endforeach
+                    @endif
+                </select>
+                @if($errors->has('state'))
+                    <em class="invalid-feedback">
+                        {{ $errors->first('state') }}
+                    </em>
+                @endif
+                <p class="helper-block">
+                    {{ trans('cruds.employee.fields.state_helper') }}
+                </p>
+            </div>
+
+
+             <div class="form-group {{ $errors->has('city') ? 'has-error' : '' }}">
+                <label for="city">{{ trans('cruds.employee.fields.city') }}*</label>
+                <select name="city" id="city" class="form-control">
+                     <option value="">Choose City</option>
+                    @foreach($cities as $id => $city)
+                        <option value="{{ $id }}">{{ $city }}</option>
+                    @endforeach
+                </select>
+                @if($errors->has('city'))
+                    <em class="invalid-feedback">
+                        {{ $errors->first('city') }}
+                    </em>
+                @endif
+                <p class="helper-block">
+                    {{ trans('cruds.employee.fields.city_helper') }}
+                </p>
+            </div>
+            
             <div class="form-group {{ $errors->has('photo') ? 'has-error' : '' }}">
                 <label for="photo">{{ trans('cruds.employee.fields.photo') }}</label>
                 <div class="needsclick dropzone" id="photo-dropzone">
@@ -59,6 +125,7 @@
                     {{ trans('cruds.employee.fields.photo_helper') }}
                 </p>
             </div>
+
             <div class="form-group {{ $errors->has('services') ? 'has-error' : '' }}">
                 <label for="services">{{ trans('cruds.employee.fields.services') }}
                     <span class="btn btn-info btn-xs select-all">{{ trans('global.select_all') }}</span>

@@ -6,7 +6,7 @@
             <h1 class="display-1 animated slideInLeft">Services</h1>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb justify-content-center animated slideInLeft mb-0">
-                    <li class="breadcrumb-item"><a class="text-primary" href="{{route('home')}}">Home</a></li>
+                    <li class="breadcrumb-item"><a class="text-primary" href="{{ route('home') }}">Home</a></li>
                     <li class="breadcrumb-item"><a class="text-primary" href="#">Pages</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Service</li>
                 </ol>
@@ -26,17 +26,17 @@
             <div class="row g-4 g-md-0 text-center">
                 <div class="col-md-6 col-lg-4">
                     <div class="service-item h-100 p-4 border-bottom border-end wow fadeIn" data-wow-delay="0.1s">
-                        <img class="img-fluid" src="{{asset('fronted/img/Weddings.jpg')}}" alt="">
+                        <img class="img-fluid" src="{{ asset('fronted/img/Weddings.jpg') }}" alt="">
                         <h3 class="mb-3">Weddings</h3>
                         <p class="mb-3">Clita erat ipsum et lorem et sit, sed stet no labore lorem sit clita duo justo
                             et tempor eirmod magna dolore erat amet</p>
-                        <a class="btn btn-sm btn-primary text-uppercase" href="{{route('servicedetils')}}">Read More <i
+                        <a class="btn btn-sm btn-primary text-uppercase" href="{{ route('servicedetils') }}">Read More <i
                                 class="bi bi-arrow-right"></i></a>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4">
                     <div class="service-item h-100 p-4 border-bottom border-lg-end wow fadeIn" data-wow-delay="0.3s">
-                        <img class="img-fluid" src="{{asset('fronted/img/Anniversaries.jpg')}}" alt="">
+                        <img class="img-fluid" src="{{ asset('fronted/img/Anniversaries.jpg') }}" alt="">
                         <h3 class="mb-3">Anniversaries</h3>
                         <p class="mb-3">Clita erat ipsum et lorem et sit, sed stet no labore lorem sit clita duo justo
                             et tempor eirmod magna dolore erat amet</p>
@@ -47,7 +47,7 @@
                 <div class="col-md-6 col-lg-4">
                     <div class="service-item h-100 p-4 border-bottom border-end border-lg-end-0 wow fadeIn"
                         data-wow-delay="0.5s">
-                        <img class="img-fluid" src="{{asset('fronted/img/Family.jpg')}}" alt="">
+                        <img class="img-fluid" src="{{ asset('fronted/img/Family.jpg') }}" alt="">
                         <h3 class="mb-3">Family Shoots</h3>
                         <p class="mb-3">Clita erat ipsum et lorem et sit, sed stet no labore lorem sit clita duo justo
                             et tempor eirmod magna dolore erat amet</p>
@@ -58,7 +58,7 @@
                 <div class="col-md-6 col-lg-4">
                     <div class="service-item h-100 p-4 border-bottom border-lg-bottom-0 border-lg-end wow fadeIn"
                         data-wow-delay="0.1s">
-                        <img class="img-fluid" src="{{asset('fronted/img/Birthday.jpg')}}" alt="">
+                        <img class="img-fluid" src="{{ asset('fronted/img/Birthday.jpg') }}" alt="">
                         <h3 class="mb-3">Birthday parties</h3>
                         <p class="mb-3">Clita erat ipsum et lorem et sit, sed stet no labore lorem sit clita duo justo
                             et tempor eirmod magna dolore erat amet</p>
@@ -68,7 +68,7 @@
                 </div>
                 <div class="col-md-6 col-lg-4">
                     <div class="service-item h-100 p-4 border-end wow fadeIn" data-wow-delay="0.3s">
-                        <img class="img-fluid" src="{{asset('fronted/img/Cradleshoots.jpg')}}" alt="">
+                        <img class="img-fluid" src="{{ asset('fronted/img/Cradleshoots.jpg') }}" alt="">
                         <h3 class="mb-3">Cradle Shoots</h3>
                         <p class="mb-3">Clita erat ipsum et lorem et sit, sed stet no labore lorem sit clita duo justo
                             et tempor eirmod magna dolore erat amet</p>
@@ -78,7 +78,7 @@
                 </div>
                 <div class="col-md-6 col-lg-4">
                     <div class="service-item h-100 p-4 wow fadeIn" data-wow-delay="0.5s">
-                        <img class="img-fluid" src="{{asset('fronted/img/Awads.jpg')}}" alt="">
+                        <img class="img-fluid" src="{{ asset('fronted/img/Awads.jpg') }}" alt="">
                         <h3 class="mb-3">Award ceremonies</h3>
                         <p class="mb-3">Clita erat ipsum et lorem et sit, sed stet no labore lorem sit clita duo justo
                             et tempor eirmod magna dolore erat amet</p>
@@ -99,12 +99,13 @@
                 <h1 class="font-dancing-script text-primary">Testimonial</h1>
                 <h1 class="mb-5">What Clients Say!</h1>
             </div>
-          <div class="owl-carousel testimonial-carousel wow fadeIn" data-wow-delay="0.3s">
+            <div class="owl-carousel testimonial-carousel wow fadeIn" data-wow-delay="0.3s">
                 <div class="text-center bg-light p-4">
                     <i class="fa fa-quote-left fa-3x mb-3"></i>
                     <p>Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat
                         ipsum et lorem et sit.</p>
-                    <img class="img-fluid mx-auto border p-1 mb-3" src="{{asset('fronted/img/testimonial-1.jpg')}}" alt="">
+                    <img class="img-fluid mx-auto border p-1 mb-3" src="{{ asset('fronted/img/testimonial-1.jpg') }}"
+                        alt="">
                     <h4 class="mb-1">Client Name</h4>
                     <span>Profession</span>
                 </div>
@@ -112,7 +113,8 @@
                     <i class="fa fa-quote-left fa-3x mb-3"></i>
                     <p>Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat
                         ipsum et lorem et sit.</p>
-                    <img class="img-fluid mx-auto border p-1 mb-3" src="{{asset('fronted/img/testimonial-2.jpg')}}" alt="">
+                    <img class="img-fluid mx-auto border p-1 mb-3" src="{{ asset('fronted/img/testimonial-2.jpg') }}"
+                        alt="">
                     <h4 class="mb-1">Client Name</h4>
                     <span>Profession</span>
                 </div>
@@ -120,7 +122,8 @@
                     <i class="fa fa-quote-left fa-3x mb-3"></i>
                     <p>Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat
                         ipsum et lorem et sit.</p>
-                    <img class="img-fluid mx-auto border p-1 mb-3" src="{{asset('fronted/img/testimonial-3.jpg')}}" alt="">
+                    <img class="img-fluid mx-auto border p-1 mb-3" src="{{ asset('fronted/img/testimonial-3.jpg') }}"
+                        alt="">
                     <h4 class="mb-1">Client Name</h4>
                     <span>Profession</span>
                 </div>
@@ -128,7 +131,8 @@
                     <i class="fa fa-quote-left fa-3x mb-3"></i>
                     <p>Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat
                         ipsum et lorem et sit.</p>
-                    <img class="img-fluid mx-auto border p-1 mb-3" src="{{asset('fronted/img/testimonial-4.jpg')}}" alt="">
+                    <img class="img-fluid mx-auto border p-1 mb-3" src="{{ asset('fronted/img/testimonial-4.jpg') }}"
+                        alt="">
                     <h4 class="mb-1">Client Name</h4>
                     <span>Profession</span>
                 </div>
@@ -136,6 +140,4 @@
         </div>
     </div>
     <!-- Testimonial End -->
-
-    @endsection
-
+@endsection

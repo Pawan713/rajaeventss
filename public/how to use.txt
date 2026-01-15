@@ -12,7 +12,6 @@ You can login to adminpanel with default credentials admin@admin.com - password
 
 Website Color
 #bf9456  -> old color
-
 #aba59c -> New Used Color
 
 

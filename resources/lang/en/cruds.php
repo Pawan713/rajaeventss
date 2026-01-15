@@ -108,6 +108,13 @@ return [
             'updated_at_helper' => '',
             'deleted_at'        => 'Deleted at',
             'deleted_at_helper' => '',
+            'state'             =>  "State",
+            'state_helper'       => '',
+            'aadhar_no'=>            "Aadhar No",
+            'aadhar_no_helper' => '',
+            'description'       => 'Description',
+            'city'             =>  "City",
+            'city_helper'       => '',
         ],
     ],
     'client'         => [

@@ -19,6 +19,10 @@ Route::get('/servicedetils', [WelcomeController::class, 'serviceDetils'])->name(
 Route::get('/gallery', [WelcomeController::class, 'gallery'])->name('gallery');
 Route::get('/testimonials', [WelcomeController::class, 'testimonials'])->name('testimonials');
 
+Route::get('/city/{slug}', [WelcomeController::class, 'employeerlist'])->name('city.show');
+
+
+Route::get('/search-data', [WelcomeController::class, 'search'])->name('search.data');
 
 
 

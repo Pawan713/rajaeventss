@@ -9,6 +9,8 @@ use App\Http\Requests\MassDestroyEmployeeRequest;
 use App\Http\Requests\StoreEmployeeRequest;
 use App\Http\Requests\UpdateEmployeeRequest;
 use App\Service;
+use App\State;
+use App\City;
 use Gate;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -88,14 +90,19 @@ class EmployeesController extends Controller
         abort_if(Gate::denies('employee_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         $services = Service::all()->pluck('name', 'id');
+        $states = State::where('status',1)->get();
+        $cities = City::all()->pluck('name', 'id');
 
-        return view('admin.employees.create', compact('services'));
+        // return $states;
+        return view('admin.employees.create', compact('services','cities'))->with('states',$states);
     }
 
     public function store(StoreEmployeeRequest $request)
     {
         $employee = Employee::create($request->all());
         $employee->services()->sync($request->input('services', []));
+
+        // $employee->cities()->sync($request->input('city', []));
 
         if ($request->input('photo', false)) {
             $employee->addMedia(storage_path('tmp/uploads/' . $request->input('photo')))->toMediaCollection('photo');
@@ -109,10 +116,12 @@ class EmployeesController extends Controller
         abort_if(Gate::denies('employee_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         $services = Service::all()->pluck('name', 'id');
+         $states = State::where('status',1)->get();
+        $cities = City::all()->pluck('name', 'id');
 
         $employee->load('services');
 
-        return view('admin.employees.edit', compact('services', 'employee'));
+        return view('admin.employees.edit', compact('services', 'employee','cities'))->with('states',$states);
     }
 
     public function update(UpdateEmployeeRequest $request, Employee $employee)
